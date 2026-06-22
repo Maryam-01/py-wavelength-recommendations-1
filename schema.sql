@@ -1,7 +1,3 @@
--- schema.sql
--- Schema for the Wavelength Recommendations mini-sprint starter.
--- This mirrors the Wavelength domain from the listening database sprint.
-
 CREATE TABLE artists (
     artist_id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,

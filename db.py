@@ -1,7 +1,3 @@
-# db.py
-# asyncpg connection pool and the FastAPI dependency that hands a
-# pooled connection to a route handler.
-
 import os
 
 import asyncpg

@@ -1,7 +1,3 @@
--- seed.sql
--- Sample data reused from the Wavelength listening database sprint,
--- so this is the same domain learners already know.
-
 INSERT INTO artists (artist_id, name, country, genre) VALUES
   (1, 'ABBA',     'Sweden',          'Pop'),
   (2, 'Blondie',  'United States',   'New Wave'),

@@ -1,9 +1,3 @@
-# routes/recommendations.py
-# Both endpoints below are already async and already use asyncpg -
-# the conversion work is done. Your mini-sprint task is to add either
-# a cache (top-tracks) or rate limiting (the per-user feed) - see the
-# lesson instructions, not this file, for what to build.
-
 from fastapi import APIRouter, Depends
 
 from db import get_async_conn
