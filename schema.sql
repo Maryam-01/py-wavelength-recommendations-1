@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS wavelength_recommendations;
+CREATE DATABASE wavelength_recommendations;
+
 CREATE TABLE artists (
     artist_id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,

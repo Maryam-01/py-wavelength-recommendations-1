@@ -1,24 +1,25 @@
 import os
-
-import asyncpg
+from psycopg_pool import AsyncConnectionPool
+from psycopg.rows import dict_row
 from dotenv import load_dotenv
 
 load_dotenv()
 
 DATABASE_URL = os.environ["DATABASE_URL"]
 
-pool: asyncpg.Pool | None = None
-
+pool: AsyncConnectionPool | None = None
 
 async def connect_to_db():
     global pool
-    pool = await asyncpg.create_pool(dsn=DATABASE_URL)
-
+    pool = AsyncConnectionPool(
+        conninfo=DATABASE_URL,
+        kwargs={"row_factory": dict_row},
+    )
 
 async def close_db_connection():
     await pool.close()
 
 
 async def get_async_conn():
-    async with pool.acquire() as connection:
+    async with pool.connection() as connection:
         yield connection

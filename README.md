@@ -1,13 +1,11 @@
 # Wavelength Recommendations
 
-Starter repository for the Wavelength Recommendations mini-sprint.
-
 ## Setup
 
 1. Fork and clone this repository
 2. Create and activate a virtual environment:
    ```bash
-   python -m venv venv
+   python -m venv .venv
    source venv/bin/activate
    ```
 3. Install dependencies:
@@ -38,9 +36,7 @@ Starter repository for the Wavelength Recommendations mini-sprint.
 ```
 py-wavelength-recommendations/
 ├── main.py                    # FastAPI app and startup/shutdown of the connection pool
-├── db.py                      # asyncpg connection pool and the get_async_conn dependency
-├── routes/
-│   └── recommendations.py     # the two existing endpoints
+├── db.py                      # psycopg connection pool and the get_async_conn dependency
 ├── schema.sql                 # CREATE TABLE statements (already applied)
 ├── seed.sql                   # sample data (already applied)
 ├── NOTES.md                   # your write-up for whichever path you choose
