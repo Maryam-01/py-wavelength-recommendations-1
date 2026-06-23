@@ -15,11 +15,15 @@ async def connect_to_db():
         conninfo=DATABASE_URL,
         kwargs={"row_factory": dict_row},
     )
+    await pool.open()
 
 async def close_db_connection():
     await pool.close()
 
 
 async def get_async_conn():
-    async with pool.connection() as connection:
+    connection = await pool.getconn()
+    try:
         yield connection
+    finally:
+        await pool.putconn(connection)

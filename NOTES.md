@@ -4,13 +4,17 @@
 
 _A (cache) or B (rate limiting), and why._
 
+We chose PATH A, because queries are expensive and requested often. The data changes only after the weekly recommendation job
+
 ## If Path A (cache)
 
 _What TTL did you choose, and why that value specifically?_
-
+hourly updates, so it limits the database reads but also allows for updates
 _What could a user see that is stale within that TTL window, and is that acceptable? Why?_
-
+user will see older recommendations lists, hourly updates are suitable for recommendations, unlike bookings that need more frequent bookings and payments that are time critical.
 _What would you have to change if the weekly recommendation job started running more often?_
+shorten the TTL
+users will see updated recommendations sooner
 
 ## If Path B (rate limiting)
 
